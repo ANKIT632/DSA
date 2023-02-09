@@ -1,0 +1,39 @@
+import java.util.HashMap;
+import java.util.Map;
+
+// find sum of target value index in array
+public class FindTarget {
+    public static void main(String[] args) {
+        int[] arr={2,1,8,8};
+         // int x[]=new int [2];
+        int x[]= twoSum(arr,11);
+         for(int j=0;j<x.length;j++){
+            System.out.print(x[j]+" ");
+         }
+        
+    }
+
+    public static int[] twoSum(int[] nums, int target) {
+        int[] result = new int[3];
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        for (int i = 0; i < nums.length; i++) {
+
+            // return if key is contain
+            if (map.containsKey(target - nums[i])) {
+                result[1] = i;  
+
+                // get index value  through key
+                result[0] = map.get(target - nums[i]);
+
+              
+            
+                return result;
+            }
+
+            // here put key = data and value = index
+            map.put(nums[i], i);
+        }
+
+        return result;
+    }
+}
