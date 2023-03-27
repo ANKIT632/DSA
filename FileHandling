@@ -1,0 +1,57 @@
+package FileHandling;
+import java.io.*;
+public class FH {
+    public static void main(String[] args)  {
+       File f=new File("D:\\DSA\\FileHandling\\read.txt"); 
+       File r=new File("D:\\DSA\\FileHandling\\read.txt"); 
+       if(f.exists()){
+        System.out.println("file Name = "+f.getName());
+        System.out.println("path = "+f.getAbsolutePath());
+        System.out.println("can read"+f.canRead());
+       }
+
+// write file 
+
+       try{
+       FileWriter fi=new FileWriter("D:\\DSA\\FileHandling\\read.txt");
+       try{fi.write("ankit gupta");}
+        finally{fi.close();}
+        System.out.println("succsessful write");
+       }
+       catch(IOException e){
+        e.fillInStackTrace();
+       }
+
+//  read file 
+
+      try{ FileReader fr=new FileReader("D:\\DSA\\FileHandling\\read.txt");
+
+          try{
+            int i;
+
+            while((i=fr.read())!=-1){
+                // i get ascii value of each char
+                // fr.read() method give only one char at once calling
+             System.out.print((char)i);
+            }
+
+          }
+           
+         finally{ 
+        fr.close();
+         }
+    }
+
+    catch(IOException e){
+        System.out.println(e);
+    }
+
+// file rename
+f.renameTo(r);
+System.out.println(" file Name = "+f.getName()); 
+
+    
+    }
+
+
+}
