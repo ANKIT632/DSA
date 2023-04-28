@@ -1,0 +1,57 @@
+
+ public class Solution implements Runnable {
+  
+	@Override
+	public void run(){
+		String n=Thread.currentThread().getName();
+      for(int i=0;i<5;i++){
+		
+		System.out.println(n+" Gupta");
+
+		try{
+		Thread.sleep(2000);
+	  }
+
+	  catch(Exception e){
+		e.printStackTrace();
+	  }
+	  }
+	  
+	}
+
+
+	
+}
+
+class A{
+	public static void main(String[] args) {
+	
+		 Solution obj=new Solution();
+		Solution obj1=new Solution();
+		 Thread t=new Thread(obj);
+		 Thread t2=new Thread(obj1);
+		 t.setName("t1");
+		 t2.setName("t2");
+		 t2.start();
+		 try{
+			t2.join();
+		 }
+		 catch(Exception e){
+           System.out.println();
+		 }
+		 t.start();
+
+       for(int i=0;i<5;i++){
+		String n=Thread.currentThread().getName();
+		System.out.println(n+" Ankit");
+       try{
+	  Thread.sleep(2000);
+	   }
+
+	   catch(Exception e){
+		e.printStackTrace();
+	   }
+	   }
+     
+		}
+}
