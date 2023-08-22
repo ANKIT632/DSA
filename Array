@@ -10,7 +10,7 @@ public class FindTarget {
          for(int j=0;j<x.length;j++){
             System.out.print(x[j]+" ");
          }
-        
+         
     }
 
     public static int[] twoSum(int[] nums, int target) {
